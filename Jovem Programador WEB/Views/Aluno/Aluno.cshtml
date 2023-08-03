@@ -1,0 +1,59 @@
+﻿<style>
+    #button{
+        background-color: gainsboro ;
+    }
+    #adicionar{
+        color: rgb(69, 69, 69);
+        text-decoration: none
+    }
+</style>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Matricula</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Idade</th>
+            <th scope="col">CEP</th>
+            <th scope="col">Ver Endereço</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1358</td>
+            <td>Mark</td>
+            <td>23</td>
+            <td>88354-650</td>
+            <td>
+                <div class="d-grid gap-2 d-md-block">
+                    <a id="adicionar" style="background-color: gainsboro" type="submit" class="btn btn-light" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="88354-650"> Endereco</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>1358</td>
+            <td>Jacob</td>
+            <td>28</td> 
+            <td>88354-670</td>
+            <td>
+                <div class="d-grid gap-2 d-md-block">
+                    <a id="adicionar" style="background-color: gainsboro" type="submit" class="btn btn-light" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="88354-670"> Endereco</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>1358</td>
+            <td >Larry </td>
+            <td>32</td>
+            <td>88354-670</td>
+            <td>
+                <div class="d-grid gap-2 d-md-block">
+                    <a id="adicionar" style="background-color: gainsboro" type="submit" class="btn btn-light" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="88354-670"> Endereco</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+    <button id="button" type="button" class="btn btn-light" type="button"><a id="adicionar" href="AdicionarAluno"> Adicionar Aluno </a> </button>
+</div>
+
