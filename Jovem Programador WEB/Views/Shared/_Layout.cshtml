@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="~/Jovem_Programador_WEB.styles.css" asp-append-version="true" />
     <style>
         body {
-            background-color: rgb(69, 69, 69)
+            background-color: rgb(89, 89, 89)
             
         }
         h1{
@@ -24,21 +24,27 @@
         td {
             color: gainsboro;
         }
+        #Nav{
+            color: rgb(89,67,175);
+        }
+        #Navs{
+            color: gainsboro;   
+        }
     </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a id="Nav" class="navbar-brand" href="#">Navbar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Pagina inicial</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Aluno" asp-action="Aluno">Alunos</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Professor" asp-action="Professor">Professor</a>
+                        <a id="Navs" class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Pagina inicial</a>
+                        <a id="Navs" class="nav-link " asp-area="" asp-controller="Aluno" asp-action="Aluno">Alunos</a>
+                        <a id="Navs" class="nav-link " asp-area="" asp-controller="Professor" asp-action="Professor">Professor</a>
                     </div>
                 </div>
             </div>
