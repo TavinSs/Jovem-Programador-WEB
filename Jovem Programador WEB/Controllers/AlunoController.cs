@@ -28,6 +28,12 @@ namespace Jovem_Programador_WEB.Controllers
                 if (result.IsSuccessStatusCode)
                 {
                     endereco = JsonSerializer.Deserialize<Endereco>(await result.Content.ReadAsStringAsync(), new JsonSerializerOptions() { });
+
+                    ViewData["MsgSucess"] = "Sucesso na busca do endereço!";
+                }
+                else
+                {
+                    ViewData["MsgErro"] = "!Erro na busca do endereço!";
                 }
             }
             catch (Exception)
@@ -35,7 +41,8 @@ namespace Jovem_Programador_WEB.Controllers
                 throw;
             }
 
-            return View("Aluno");
+
+            return View("Endereco", endereco);
         }
             public IActionResult Aluno()
             {

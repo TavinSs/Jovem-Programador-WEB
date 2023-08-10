@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="~/Jovem_Programador_WEB.styles.css" asp-append-version="true" />
     <style>
         body {
-            background-color: rgb(89, 89, 89)
+            background-color: #212121;
             
         }
         h1{
             color:gainsboro;
         }
         div{
-            color: gainsboro;
+            color: Black;
         }
         th{
             color:gainsboro;
@@ -29,6 +29,12 @@
         }
         #Navs{
             color: gainsboro;   
+        }
+        #linha{
+            padding: 100px 10px;
+        }
+        nav{
+            background-color: rgb(59,59,59)
         }
     </style>
 </head>
@@ -53,13 +59,12 @@
         <img scr="https://i.etsystatic.com/14951240/r/il/6b7a35/3536263578/il_794xN.3536263578_8ry6.jpg">
     </header>
 
-    <div class="container">
+    <div id="linha" class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
+    <footer id="Rodape" class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - Jovem_Programador_WEB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
