@@ -1,92 +1,65 @@
-﻿<style>
+﻿@model Aluno
+
+<style>
     #button {
-        padding: 17px 40px;
-        border-radius: 50px;
+        padding: 8.5px 20px;
+        border-radius: 25px;
         border: 0;
         background-color: white;
         box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
         letter-spacing: 1.5px;
         text-transform: uppercase;
-        font-size: 15px;
+        font-size: 12px;
         transition: all .5s ease;
     }
 
-    #button:hover {
+        #button:hover {
             letter-spacing: 3px;
-            background-color: hsl(261deg 80% 48%);
+            background-color: hsl(343deg 96.2% 41.2%);
             color: hsl(0, 0%, 100%);
-            box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
-    }
+            box-shadow: #ce045f 0px 7px 29px 0px;
+        }
 
-    #button:active {
+        #button:active {
             letter-spacing: 3px;
-            background-color: hsl(261deg 80% 48%);
+            background-color: hsl(343deg 96.2% 41.2%);
             color: hsl(0, 0%, 100%);
-            box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+            box-shadow: #ce045f 0px 0px 0px 0px;
             transform: translateY(10px);
             transition: 100ms;
+        }
+
+    #adicionar {
+        font-family: 'Century Gothic';
+        color: rgb(129,129,129);
+        text-decoration: none
+    }
+
+    #label-ad{
+        color:gainsboro;
     }
 </style>
-<form class="row g-3">
+<form class="row g-3" asp-controller="Aluno" asp-action="InserirAluno">
+    
     <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" class="form-control" id="inputEmail4">
+        <label id="label-ad" for="name" class="form-label">Nome</label>
+        <input type="text" asp-for="Nome" class="form-control" id="Nome" placeholder="Insira seu nome">
     </div>
+    
     <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Password</label>
-        <input type="password" class="form-control" id="inputPassword4">
+        <label id="label-ad" for="Idade" class="form-label">Idade</label>
+        <input type="text" asp-for="Idade" class="form-control" id="Idade" placeholder="Insira sua idade">
     </div>
-    <div class="col-12">
-        <label for="inputAddress" class="form-label">Endereço</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="Ex: Rua Logo ali">
-    </div>
-    <div class="col-12">
-        <label for="inputAddress2" class="form-label">Nº Casa</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Ex:123">
-    </div>
-    <div class="col-12">
-        <label for="inputAddress2" class="form-label">Telefone</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Ex:(00) 00000-0000">
+    
+    <div class="col-md-6">
+        <label id="label-ad" for="Cep" class="form-label">Matricula</label>
+        <input type="text" asp-for="Matricula" class="form-control" id="Matricula" placeholder="Insira matricula Ex: 9581539446">
+    
     </div>
     <div class="col-md-6">
-        <label for="inputCity" class="form-label">Cidade</label>
-        <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="col-md-4">
-        <label for="inputState" class="form-label">Estado</label>
-        <select id="inputState" class="form-select">
-            <option selected>Escolha...</option>
-            <option>AC</option>
-            <option>AL</option>
-            <option>AP</option>
-            <option>AM</option>
-            <option>BA</option>
-            <option>CE</option>
-            <option>ES</option>
-            <option>GO</option>
-            <option>MA</option>
-            <option>MT</option>
-            <option>MS</option>
-            <option>MG</option>
-            <option>PA</option>
-            <option>PB</option>
-            <option>PR</option>
-            <option>PE</option>
-            <option>PI</option>
-            <option>RJ</option>
-            <option>RN</option>
-            <option>RS</option>
-            <option>RO</option>
-            <option>RR</option>
-            <option>SC</option>
-            <option>SP</option>
-            <option>SE</option>
-            <option>TO</option>
-        </select>
-    </div>
-    <div class="col-md-2">
-        <label for="inputZip" class="form-label">Cep</label>
-        <input type="text" class="form-control" id="inputZip">
+        <label id="label-ad" for="cep" class="form-label">Cep</label>
+        <input type="text" asp-for="Cep" class="form-control" id="Cep" placeholder="Insira seu cep Ex: 00000-000">
+   
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-center">
         <button id="button" type="submit">Cadastrar Aluno</button>

@@ -9,6 +9,7 @@
         text-transform: uppercase;
         font-size: 12px;
         transition: all .5s ease;
+        text-decoration: none
     }
 
         #button:hover {
@@ -26,22 +27,25 @@
             transform: translateY(10px);
             transition: 100ms;
         }
-    #adicionar{
-        font-family:'Century Gothic';
-        color: rgb(129,129,129);
-        text-decoration: none
+
+    #alinhamento{
+        display: inline-flex;
+        justify-content:right;
+        padding: 12px 12px;
     }
 </style>
-@if(ViewData["MsgErro"] != null)
+@model List<Aluno>
+
+@if(TempData["MsgErro"] != null)
 {
     <div class="alert-danger">
-        @ViewData["MsgErro"]
+        @TempData["MsgErro"]
     </div>
 }
 else
 {
     <div class="alert-success">
-        @ViewData["MsgSucess"]
+        @TempData["MsgSucesso"]
     </div>
 }
 
@@ -56,48 +60,39 @@ else
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1358</td>
-            <td>Mark</td>
-            <td>23</td>
-            <td>88354-650</td>
-            <td>
-                <div class="d-grid gap-2 d-md-block">
-                    <button id="button">
-                        <a id="adicionar" type="submit" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="88354-650"> Endereco</a>
-                    </button>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>1398</td>
-            <td>Jacob</td>
-            <td>28</td> 
-            <td>88354-670</td>
-            <td>
-                <div class="d-grid gap-2 d-md-block">
-                    <button id="button">
-                        <a id="adicionar" type="submit" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="88354-670"> Endereco</a>
-                    </button>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>1568</td>
-            <td >Larry </td>
-            <td>32</td>
-            <td>88354-670</td>
-            <td>
-                <div class="d-grid gap-2 d-md-block">
-                    <button id="button">
-                        <a id="adicionar" type="submit" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="88354-670"> Endereco</a>
-                    </button>
-                </div>
-            </td>
-        </tr>
+        @if(Model != null && Model.Any())
+        {
+            foreach(Aluno aluno in Model)
+            {
+                <tr>
+                    <td> @aluno.Matricula</td>
+                    <td> @aluno.Nome</td>
+                    <td> @aluno.Idade</td>
+                    <td> @aluno.Cep</td>
+                
+
+                <td>
+                    <div>
+                        <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="@aluno.Cep">Endereco</a>
+                    </div>
+                </td>
+                </tr>
+            }
+        }
     </tbody>
 </table>
-<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-    <button id="button" type="button" class="btn btn-light" type="button"><a id="adicionar" href="AdicionarAluno"> Adicionar Aluno </a> </button>
+
+@*BOTÃO DE ADICIONAR*@
+<div id="alinhamento">
+    <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="AdicionarAluno"> Adicionar Aluno </a> </button>
 </div>
 
+@*BOTÃO DE EDITAR*@
+<div id="alinhamento">
+    <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="AdicionarAluno"> Editar Aluno </a> </button>
+</div>
+
+@*BOTÃO DE EXCLUIR*@
+<div id="alinhamento">
+    <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="AdicionarAluno"> Excluir Aluno </a> </button>
+</div>

@@ -1,4 +1,6 @@
-﻿using Jovem_Programador_WEB.Models;
+﻿using Jovem_Programador_WEB.Data.Repositorio;
+using Jovem_Programador_WEB.Data.Repositorio.Interfaces;
+using Jovem_Programador_WEB.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
@@ -7,11 +9,17 @@ namespace Jovem_Programador_WEB.Controllers
     public class AlunoController : Controller
     {
         private readonly IConfiguration _configuration;
-        public AlunoController(IConfiguration configuration)
+        private readonly IAlunoRepositorio _alunoRepositorio;
+        public AlunoController(IConfiguration configuration, IAlunoRepositorio alunoRepositorio)
         {
             _configuration = configuration;
+            _alunoRepositorio = alunoRepositorio;
         }
-
+        public IActionResult Aluno()
+        {
+            var aluno = _alunoRepositorio.BuscarAlunos();
+            return View(aluno);
+        }
         public async Task<IActionResult> BuscarEndereco(string cep)
         {
             Endereco endereco = new Endereco();
@@ -33,7 +41,7 @@ namespace Jovem_Programador_WEB.Controllers
                 }
                 else
                 {
-                    ViewData["MsgErro"] = "!Erro na busca do endereço!";
+                    ViewData["MsgErr"] = "!Erro na busca do endereço!";
                 }
             }
             catch (Exception)
@@ -44,13 +52,32 @@ namespace Jovem_Programador_WEB.Controllers
 
             return View("Endereco", endereco);
         }
-            public IActionResult Aluno()
-            {
-                return View();
-            }
         public IActionResult AdicionarAluno()
         {
             return View();
         }
+
+        public IActionResult InserirAluno(Aluno aluno)
+        {
+            try
+            {
+                _alunoRepositorio.InserirAluno(aluno);
+                TempData["MsgSucesso"] = "Aluno adicionado com sucesso";
+            }
+            catch (Exception ex)
+            {
+                TempData["MsgErro"] = "Erro ao inserir aluno";
+            }
+            
+
+            return RedirectToAction("Aluno");
+        }
+
+        public IActionResult EditarAluno()
+        {
+            return View();
+        }
     }
+
+    
 }
