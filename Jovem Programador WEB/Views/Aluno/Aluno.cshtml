@@ -29,9 +29,8 @@
         }
 
     #alinhamento{
-        display: inline-flex;
-        justify-content:right;
-        padding: 12px 12px;
+        
+        padding: 2px 2px;
     }
 </style>
 @model List<Aluno>
@@ -57,6 +56,8 @@ else
             <th scope="col">Idade</th>
             <th scope="col">CEP</th>
             <th scope="col">Ver Endereço</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Excluir</th>
         </tr>
     </thead>
     <tbody>
@@ -65,16 +66,27 @@ else
             foreach(Aluno aluno in Model)
             {
                 <tr>
+                    <td>@aluno.Id</td>
                     <td> @aluno.Matricula</td>
                     <td> @aluno.Nome</td>
                     <td> @aluno.Idade</td>
                     <td> @aluno.Cep</td>
-                
 
-                <td>
+
+                <td id="alinhamento">
                     <div>
                         <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="@aluno.Cep">Endereco</a>
                     </div>
+                </td>
+                <td id ="alinhamento">
+                    <div>
+                        <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="Editar" asp-route-id="@aluno.Id"> Editar Aluno </a>
+                    </div>
+                </td>
+                    <td id ="alinhamento">
+                    <div>
+                            <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="AdicionarAluno" asp-route-id="@aluno.Id"> Excluir Aluno </a>
+                        </div>
                 </td>
                 </tr>
             }
@@ -84,15 +96,5 @@ else
 
 @*BOTÃO DE ADICIONAR*@
 <div id="alinhamento">
-    <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="AdicionarAluno"> Adicionar Aluno </a> </button>
-</div>
-
-@*BOTÃO DE EDITAR*@
-<div id="alinhamento">
-    <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="AdicionarAluno"> Editar Aluno </a> </button>
-</div>
-
-@*BOTÃO DE EXCLUIR*@
-<div id="alinhamento">
-    <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="AdicionarAluno"> Excluir Aluno </a> </button>
+    <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="AdicionarAluno"> Adicionar Aluno </a> 
 </div>
