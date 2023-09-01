@@ -10,30 +10,37 @@
     <style>
         body {
             background-color: #212121;
-            
         }
-        h1{
-            color:gainsboro;
+
+        h1 {
+            color: gainsboro;
         }
-        div{
+
+        div {
             color: Black;
         }
-        th{
-            color:gainsboro;
+
+        th {
+            color: gainsboro;
         }
+
         td {
             color: gainsboro;
         }
-        #Nav{
+
+        #Nav {
             color: #690420;
         }
-        #Navs{
-            color: gainsboro;   
+
+        #Navs {
+            color: gainsboro;
         }
-        #linha{
+
+        #linha {
             padding: 100px 10px;
         }
-        nav{
+
+        nav {
             background-color: rgb(59,59,59)
         }
     </style>
@@ -47,11 +54,11 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
+                    @* <div class="navbar-nav">
                         <a id="Navs" class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Pagina inicial</a>
                         <a id="Navs" class="nav-link " asp-area="" asp-controller="Aluno" asp-action="Aluno">Alunos</a>
                         <a id="Navs" class="nav-link " asp-area="" asp-controller="Professor" asp-action="Professor">Professor</a>
-                    </div>
+                    </div> *@
                 </div>
             </div>
         </nav>
@@ -64,7 +71,7 @@
             @RenderBody()
         </main>
     </div>
- 
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

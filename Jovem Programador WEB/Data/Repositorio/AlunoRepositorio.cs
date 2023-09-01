@@ -1,5 +1,6 @@
 ﻿using Jovem_Programador_WEB.Data.Repositorio.Interfaces;
 using Jovem_Programador_WEB.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Jovem_Programador_WEB.Data.Repositorio
 {
@@ -29,6 +30,11 @@ namespace Jovem_Programador_WEB.Data.Repositorio
         public Aluno BuscarId(int id)
         {
             return _bancoContexto.Aluno.FirstOrDefault(x => x.Id == id);
+        }
+        public void DeletarAluno(Aluno aluno)
+        {
+            _bancoContexto.Aluno.Remove(aluno);
+            _bancoContexto.SaveChanges();
         }
     }
 }

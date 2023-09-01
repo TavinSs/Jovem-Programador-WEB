@@ -1,0 +1,130 @@
+﻿@{
+    Layout = "_LayoutDeslogado";
+}
+@model Usuario
+<style>
+	import url('https://fonts.googleapis.com/css?family=Numans');
+
+body{
+background-color:#212121;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+height: 100%;
+align-content: center;
+}
+
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+.card-header h3{
+color: white;
+}
+
+.input-group-prepend span{
+width: 44px;
+height: 47px;
+background-color: #ce045f;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+}
+
+#button {
+padding: 8.5px 20px;
+border-radius: 25px;
+border: 0;
+background-color: white;
+box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+font-size: 12px;
+transition: all .5s ease;
+display:inline-block;
+}
+
+#button:hover {
+letter-spacing: 3px;
+background-color: hsl(343deg 96.2% 41.2%);
+color: hsl(0, 0%, 100%);
+box-shadow: #ce045f 0px 7px 29px 0px;
+}
+
+#button:active {
+letter-spacing: 3px;
+background-color: hsl(343deg 96.2% 41.2%);
+color: hsl(0, 0%, 100%);
+box-shadow: #ce045f 0px 0px 0px 0px;
+transform: translateY(10px);
+transition: 100ms;
+}
+
+#buttoncenter{
+text-align: center;
+margin-top: 50px;
+}
+
+#alinhamento{
+	padding-inline: 20px 20px;
+	margin: 10px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
+</style>
+@if (TempData["MsgErro"] != null)
+{
+	<div class="alert-danger">
+		@TempData["MsgErro"]
+	</div>
+}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+<div class="d-flex justify-content-center h-100">
+	<div class="card">
+		<div class="card-header">
+			<h3>Sign In</h3>
+		</div>
+		<div class="card-body">
+			<form asp-controller="Login" asp-action="BuscarUsuario">
+				<div id="alinhamento" class="input-group form-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"><i class="fas fa-user"></i></span>
+					</div>
+					<input type="email" class="form-control" asp-for="Email" placeholder="Email">
+
+				</div>
+				<div id="alinhamento" class="input-group form-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"><i class="fas fa-key"></i></span>
+					</div>
+					<input type="password" class="form-control" asp-for="Senha" placeholder="Senha">
+				</div>
+				<div id="buttoncenter">
+					<button type="submit" value="Login" id="button" class="btn-light">Entrar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

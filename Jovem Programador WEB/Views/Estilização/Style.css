@@ -1,2 +1,28 @@
-﻿body {
+﻿#button {
+    padding: 8.5px 20px;
+    border-radius: 25px;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 12px;
+    transition: all .5s ease;
+    text-decoration: none
 }
+
+    #button:hover {
+        letter-spacing: 3px;
+        background-color: hsl(343deg 96.2% 41.2%);
+        color: hsl(0, 0%, 100%);
+        box-shadow: #ce045f 0px 7px 29px 0px;
+    }
+
+    #button:active {
+        letter-spacing: 3px;
+        background-color: hsl(343deg 96.2% 41.2%);
+        color: hsl(0, 0%, 100%);
+        box-shadow: #ce045f 0px 0px 0px 0px;
+        transform: translateY(10px);
+        transition: 100ms;
+    }

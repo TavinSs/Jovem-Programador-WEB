@@ -12,25 +12,20 @@
         text-decoration: none
     }
 
-        #button:hover {
+    #button:hover {
             letter-spacing: 3px;
             background-color: hsl(343deg 96.2% 41.2%);
             color: hsl(0, 0%, 100%);
             box-shadow: #ce045f 0px 7px 29px 0px;
-        }
+    }
 
-        #button:active {
+    #button:active {
             letter-spacing: 3px;
             background-color: hsl(343deg 96.2% 41.2%);
             color: hsl(0, 0%, 100%);
             box-shadow: #ce045f 0px 0px 0px 0px;
             transform: translateY(10px);
             transition: 100ms;
-        }
-
-    #alinhamento{
-        
-        padding: 2px 2px;
     }
 </style>
 @model List<Aluno>
@@ -51,6 +46,7 @@ else
 <table class="table">
     <thead>
         <tr>
+            <th scope="col">Id</th>
             <th scope="col">Matricula</th>
             <th scope="col">Nome</th>
             <th scope="col">Idade</th>
@@ -85,7 +81,7 @@ else
                 </td>
                     <td id ="alinhamento">
                     <div>
-                            <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="AdicionarAluno" asp-route-id="@aluno.Id"> Excluir Aluno </a>
+                            <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="ExcluirAluno" asp-route-id="@aluno.Id"> Excluir Aluno </a>
                         </div>
                 </td>
                 </tr>

@@ -75,13 +75,19 @@ namespace Jovem_Programador_WEB.Controllers
         public IActionResult Editar(int id)
         {
             var aluno = _alunoRepositorio.BuscarId(id);
-            return View("EditarAluno",aluno);
+            return View("EditarAluno", aluno);
         }
 
         public IActionResult EditarAluno(Aluno aluno)
         {
             _alunoRepositorio.EditarAluno(aluno);
-            return View(aluno);
+            return RedirectToAction("Aluno",aluno);
+        }
+
+        public IActionResult ExcluirAluno(Aluno aluno)
+        {
+            _alunoRepositorio.DeletarAluno(aluno);
+            return RedirectToAction("Aluno");
         }
 
     }
