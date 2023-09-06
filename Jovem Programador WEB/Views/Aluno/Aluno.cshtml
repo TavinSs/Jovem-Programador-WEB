@@ -9,7 +9,8 @@
         text-transform: uppercase;
         font-size: 12px;
         transition: all .5s ease;
-        text-decoration: none
+        text-decoration: none;
+        display:inline-block;
     }
 
     #button:hover {
@@ -27,6 +28,9 @@
             transform: translateY(10px);
             transition: 100ms;
     }
+#alinhamento{
+    text-align:center;
+}
 </style>
 @model List<Aluno>
 
@@ -69,17 +73,17 @@ else
                     <td> @aluno.Cep</td>
 
 
-                <td id="alinhamento">
+                <td >
                     <div>
                         <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="@aluno.Cep">Endereco</a>
                     </div>
                 </td>
-                <td id ="alinhamento">
+                <td >
                     <div>
                         <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="Editar" asp-route-id="@aluno.Id"> Editar Aluno </a>
                     </div>
                 </td>
-                    <td id ="alinhamento">
+                    <td >
                     <div>
                             <a id="button" type="submit" class="btn-light" role="button" asp-controller="Aluno" asp-action="ExcluirAluno" asp-route-id="@aluno.Id"> Excluir Aluno </a>
                         </div>
